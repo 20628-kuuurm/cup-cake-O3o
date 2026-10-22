@@ -211,73 +211,186 @@
     }
 
     /* ===================================================
-       4. Hero 首頁區塊
+       4. Hero 首頁區塊 (主題大標呈現)
        =================================================== */
     .hero {
-      padding: 4.5rem 0 5.5rem;
+      padding: 4.5rem 0 5rem;
+      position: relative;
     }
 
-    .hero-wrapper {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 3.5rem;
+    .hero-header {
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto 3.5rem;
     }
 
-    .hero-badge {
+    .hero-theme-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 1rem;
+      gap: 0.6rem;
+      padding: 0.45rem 1.25rem;
       border-radius: var(--radius-full);
       background: var(--bg-surface);
       border: 1px solid var(--border);
-      font-size: 0.86rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
       box-shadow: var(--shadow-sm);
     }
 
-    .badge-dot {
+    .theme-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #73C991; /* 活潑微綠點 */
+      background: #73C991;
+      box-shadow: 0 0 0 3px rgba(115, 201, 145, 0.25);
     }
 
-    .hero-title {
-      font-size: clamp(2.6rem, 5vw, 3.8rem);
+    .theme-subtext {
+      color: var(--text-light);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding-left: 0.4rem;
+      border-left: 1px solid var(--border);
+    }
+
+    /* 主題大標 (Thematic Main Headline) */
+    .hero-thematic-title {
+      font-size: clamp(2.4rem, 5.2vw, 4rem);
       font-weight: 700;
-      line-height: 1.18;
+      line-height: 1.22;
       letter-spacing: -0.03em;
       color: var(--text-main);
       margin-bottom: 1.2rem;
     }
 
-    .hero-title .serif-highlight {
+    .hero-thematic-title .serif-accent {
       font-family: 'Playfair Display', serif;
       font-style: italic;
       font-weight: 500;
       color: var(--accent);
+      padding: 0 0.15em;
     }
 
-    .hero-quote {
-      font-size: 1.15rem;
+    .hero-thematic-title .highlight-box {
+      position: relative;
+      display: inline-block;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .hero-thematic-title .highlight-box::after {
+      content: '';
+      position: absolute;
+      left: -4px;
+      right: -4px;
+      bottom: 6px;
+      height: 35%;
+      background: var(--accent-soft);
+      border-radius: 4px;
+      z-index: -1;
+      opacity: 0.85;
+    }
+
+    .hero-thematic-subtitle {
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 2.2rem;
-      max-width: 480px;
+      margin-top: 0.8rem;
     }
 
-    .quote-accent {
+    /* 主內容雙欄網格 */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2.2rem;
+      align-items: stretch;
+    }
+
+    .hero-bio-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.4rem 2.2rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .hero-bio-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    .bio-lead {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .avatar-mini {
+      width: 54px;
+      height: 54px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #F8EFE4 0%, #EADDCF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+      flex-shrink: 0;
+    }
+
+    .bio-name {
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .bio-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-full);
+    }
+
+    .bio-role {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .bio-text {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+
+    .quote-pill {
       display: inline-block;
       font-weight: 700;
       color: var(--text-main);
       background: var(--bg-surface-soft);
-      padding: 0.1rem 0.55rem;
+      padding: 0.12rem 0.65rem;
       border-radius: 6px;
       font-family: 'Plus Jakarta Sans', monospace;
+      font-size: 1.1rem;
+      border: 1px solid var(--border);
     }
 
     .hero-actions {
@@ -316,6 +429,7 @@
       font-weight: 500;
       font-size: 0.95rem;
       transition: var(--transition-smooth);
+      cursor: pointer;
     }
 
     .btn-secondary:hover {
@@ -324,96 +438,86 @@
       transform: translateY(-2px);
     }
 
-    /* Hero 頭像 / 視覺卡片 */
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
+    /* 主題展示卡片 (Themes Showcase) */
+    .hero-theme-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
     }
 
-    .avatar-card {
-      width: 100%;
-      max-width: 340px;
-      aspect-ratio: 4 / 4.7;
+    .theme-item {
       background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
-      position: relative;
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.25rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .theme-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
+      background: #FFFDF9;
+    }
+
+    .theme-item-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .theme-item:hover .theme-item-icon {
+      transform: scale(1.15) rotate(6deg);
+    }
+
+    .theme-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .theme-item-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .theme-item strong {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .theme-item small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .theme-item-arrow {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
       transition: var(--transition-smooth);
     }
 
-    .avatar-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
+    .theme-item:hover .theme-item-arrow {
+      color: var(--accent);
+      transform: translateX(4px);
     }
 
-    .avatar-illustration {
-      flex: 1;
-      width: 100%;
-      background: linear-gradient(145deg, #F9F4EE 0%, #EDE2D6 100%);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .avatar-graphic {
-      font-size: 4.8rem;
-      user-select: none;
-      filter: drop-shadow(0 6px 12px rgba(45, 41, 38, 0.1));
-      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .avatar-card:hover .avatar-graphic {
-      transform: scale(1.08) rotate(3deg);
-    }
-
-    .avatar-meta {
-      padding-top: 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-
-    .avatar-meta h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    .avatar-meta p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .floating-pill {
-      position: absolute;
-      bottom: -15px;
-      right: -15px;
-      background: var(--bg-surface);
-      padding: 0.6rem 1.1rem;
-      border-radius: var(--radius-full);
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
+    .theme-item-highlight {
+      background: linear-gradient(145deg, #FAF4ED 0%, #FFFFFF 100%);
+      border-color: var(--accent);
     }
 
     /* ===================================================
@@ -845,24 +949,15 @@
        12. 響應式微調 (Responsive RWD)
        =================================================== */
     @media (max-width: 900px) {
-      .hero-wrapper {
+      .hero-grid {
         grid-template-columns: 1fr;
-        text-align: center;
-        gap: 3rem;
+        gap: 1.8rem;
       }
-      .hero-actions {
-        justify-content: center;
+      .hero-header {
+        margin-bottom: 2.5rem;
       }
-      .hero-quote {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero-visual {
-        order: -1;
-      }
-      .avatar-card {
-        max-width: 280px;
-        margin: 0 auto;
+      .desktop-br {
+        display: none;
       }
       .hobbies-grid,
       .works-grid {
@@ -891,10 +986,25 @@
         display: none; /* 手機端精簡版面 */
       }
       section {
-        padding: 4rem 0;
+        padding: 3.5rem 0;
       }
-      .hero-title {
-        font-size: 2.2rem;
+      .hero-thematic-title {
+        font-size: 2.1rem;
+      }
+      .hero-theme-showcase {
+        grid-template-columns: 1fr;
+      }
+      .hero-bio-card {
+        padding: 1.8rem 1.4rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-secondary {
+        width: 100%;
+        justify-content: center;
       }
       .skill-card {
         padding: 2.2rem 1.5rem;
@@ -921,26 +1031,50 @@
   </div>
 
   <main>
-    <!-- 2. Hero 區塊 -->
+    <!-- 2. Hero 區塊 (以主題大標呈現) -->
     <section class="hero" id="about">
       <div class="container">
-        <div class="hero-wrapper">
+        
+        <!-- 主題大標區 (Thematic Headline) -->
+        <div class="hero-header reveal">
+          <div class="hero-theme-badge">
+            <span class="theme-dot"></span>
+            <span class="theme-text">自我介紹 ✦ PERSONAL INTRODUCTION</span>
+            <span class="theme-subtext">CELINE · 2026</span>
+          </div>
+          <h1 class="hero-thematic-title">
+            保持 <span class="serif-accent">87%</span> 的幽默率真，<br class="desktop-br">
+            在顛倒視角中調味<span class="highlight-box">熱愛的生活</span>。
+          </h1>
+          <p class="hero-thematic-subtitle">
+            DRAW · BAKE · EAT &amp; HANDSTAND INVERTED BALANCE
+          </p>
+        </div>
+
+        <!-- 介紹內容與主題展現網格 -->
+        <div class="hero-grid reveal delay-1">
           
-          <div class="hero-text reveal">
-            <div class="hero-badge">
-              <span class="badge-dot"></span>
-              <span>Minimalist & Quirky Life</span>
+          <!-- 個人自述簡介卡片 -->
+          <div class="hero-bio-card">
+            <div>
+              <div class="bio-lead">
+                <div class="avatar-mini">
+                  <span>✨</span>
+                </div>
+                <div>
+                  <h2 class="bio-name">Celine <span class="bio-tag">87% 率真特質</span></h2>
+                  <p class="bio-role">創作者 · 烘焙玩家 · 顛倒世界探索者</p>
+                </div>
+              </div>
+              <p class="bio-text">
+                一句話介紹自己：<span class="quote-pill">87</span> ✦<br>
+                保持 87% 的幽默感與隨性好奇，把生活過得溫柔且熱烈。剩下的認真，全留給調色盤上的靈感、剛出爐的烤箱香氣，以及離地倒立時專注的核心力量。
+              </p>
             </div>
-            <h1 class="hero-title">
-              Hi, 我是 <span class="serif-highlight">Celine.</span>
-            </h1>
-            <p class="hero-quote">
-              一句話介紹自己：<span class="quote-accent">87</span> ✦<br>
-              保持 87% 的幽默率真與生活熱情，剩下的留給畫筆、烤箱與顛倒世界的平衡感。
-            </p>
+            
             <div class="hero-actions">
               <a href="#hobbies" class="btn-primary">
-                探索我的日常
+                探索三大日常
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -952,23 +1086,47 @@
             </div>
           </div>
 
-          <div class="hero-visual reveal delay-1">
-            <div class="avatar-card">
-              <div class="avatar-illustration">
-                <div class="avatar-graphic">🎨</div>
+          <!-- 四大核心主題卡片 (Themes Showcase) -->
+          <div class="hero-theme-showcase">
+            <a href="#hobbies" class="theme-item">
+              <div class="theme-item-icon">🎨</div>
+              <div class="theme-item-info">
+                <span class="theme-item-label">主題 01</span>
+                <strong>Draw 畫畫</strong>
+                <small>捕捉腦袋裡的靈感碎片</small>
               </div>
-              <div class="avatar-meta">
-                <div>
-                  <h3>Celine</h3>
-                  <p>Baking · Drawing · Handstand</p>
-                </div>
-                <span style="font-size: 1.3rem;">🥐</span>
+              <span class="theme-item-arrow">→</span>
+            </a>
+
+            <a href="#hobbies" class="theme-item">
+              <div class="theme-item-icon">🥐</div>
+              <div class="theme-item-info">
+                <span class="theme-item-label">主題 02</span>
+                <strong>Bake 烘焙</strong>
+                <small>奶油與烤箱的魔法時光</small>
               </div>
-              <div class="floating-pill">
-                <span>✦</span>
-                <span>Draw · Bake · Eat</span>
+              <span class="theme-item-arrow">→</span>
+            </a>
+
+            <a href="#hobbies" class="theme-item">
+              <div class="theme-item-icon">🍜</div>
+              <div class="theme-item-info">
+                <span class="theme-item-label">主題 03</span>
+                <strong>Eat 吃貨日常</strong>
+                <small>巷弄美味與甜點探店</small>
               </div>
-            </div>
+              <span class="theme-item-arrow">→</span>
+            </a>
+
+            <a href="#skills" class="theme-item theme-item-highlight">
+              <div class="theme-item-icon">🤸‍♀️</div>
+              <div class="theme-item-info">
+                <span class="theme-item-label">核心技能</span>
+                <strong>倒立 Handstand</strong>
+                <small>360° 顛倒世界平衡體驗</small>
+              </div>
+              <span class="theme-item-arrow">→</span>
+            </a>
           </div>
 
         </div>
