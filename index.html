@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celine | 個人介紹</title>
+  <meta name="description" content="Celine 的個人簡介網頁 —— 畫畫、烘焙、美食與顛倒視角的倒立日常。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===================================================
+       1. 全域變數與重設 (Design Tokens & Reset)
+       =================================================== */
+    :root {
+      --bg-cream: #FAF7F2;          /* 主色：溫暖米白 */
+      --bg-surface: #FFFFFF;        /* 卡片白底 */
+      --bg-surface-soft: #F4EFEA;   /* 柔和米色塊 */
+      --text-main: #2D2926;         /* 柔和碳黑，不刺眼 */
+      --text-muted: #7A736E;        /* 次要說明灰棕 */
+      --text-light: #A49C94;        /* 淺色微標註 */
+      --accent: #C29B7F;            /* 溫暖太妃焦糖/奶茶色點綴 */
+      --accent-soft: #F0E6DE;       /* 柔膚淡焦糖色 */
+      --border: #EADBCE;            /* 柔和邊框 */
+      --border-light: #F2ECE5;      /* 極細邊框 */
+      --shadow-sm: 0 4px 16px rgba(45, 41, 38, 0.04);
+      --shadow-md: 0 12px 32px rgba(45, 41, 38, 0.06);
+      --shadow-hover: 0 20px 40px rgba(45, 41, 38, 0.09);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --radius-full: 9999px;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.7;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 10% 20%, rgba(244, 239, 234, 0.7) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(240, 230, 222, 0.6) 0%, transparent 40%),
+                  var(--bg-cream);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    /* ===================================================
+       2. 導覽列 (Navbar)
+       =================================================== */
+    .nav-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(250, 247, 242, 0.85);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .navbar {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: 0.05em;
+      color: var(--text-main);
+    }
+
+    .brand span {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-btn {
+      background: var(--text-main);
+      color: #FFF !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem !important;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(194, 155, 127, 0.3);
+    }
+
+    .nav-btn::after {
+      display: none !important;
+    }
+
+    /* ===================================================
+       3. 共用容器與排版 (Layout)
+       =================================================== */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      font-weight: 600;
+      background: var(--accent-soft);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-top: 0.5rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===================================================
+       4. Hero 首頁區塊
+       =================================================== */
+    .hero {
+      padding: 4.5rem 0 5.5rem;
+    }
+
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 3.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #73C991; /* 活潑微綠點 */
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title .serif-highlight {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .hero-quote {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+      max-width: 480px;
+    }
+
+    .quote-accent {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--text-main);
+      background: var(--bg-surface-soft);
+      padding: 0.1rem 0.55rem;
+      border-radius: 6px;
+      font-family: 'Plus Jakarta Sans', monospace;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--text-main);
+      color: #FFF;
+      padding: 0.85rem 1.8rem;
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 18px rgba(45, 41, 38, 0.15);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(194, 155, 127, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      padding: 0.85rem 1.7rem;
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-main);
+      background: var(--bg-surface-soft);
+      transform: translateY(-2px);
+    }
+
+    /* Hero 頭像 / 視覺卡片 */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .avatar-card {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 4 / 4.7;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+    }
+
+    .avatar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .avatar-illustration {
+      flex: 1;
+      width: 100%;
+      background: linear-gradient(145deg, #F9F4EE 0%, #EDE2D6 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-graphic {
+      font-size: 4.8rem;
+      user-select: none;
+      filter: drop-shadow(0 6px 12px rgba(45, 41, 38, 0.1));
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .avatar-card:hover .avatar-graphic {
+      transform: scale(1.08) rotate(3deg);
+    }
+
+    .avatar-meta {
+      padding-top: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .avatar-meta h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .avatar-meta p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .floating-pill {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      background: var(--bg-surface);
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* ===================================================
+       5. 興趣區塊 (Hobbies: Draw, Bake, Eat)
+       =================================================== */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .hobby-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 2.2rem 1.8rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
+    }
+
+    .hobby-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .hobby-card:hover .hobby-icon-wrap {
+      background: var(--accent-soft);
+      transform: scale(1.08) rotate(-4deg);
+    }
+
+    .hobby-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .hobby-name {
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .hobby-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .hobby-footer {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* ===================================================
+       6. 擅長/想學的技能：倒立 (Handstand Focus)
+       =================================================== */
+    .skill-card {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FAF5EF 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.8rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .skill-info h3 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .skill-info p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+    }
+
+    .skill-stats {
+      display: flex;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* 倒立互動體驗元件 */
+    .inversion-box {
+      background: var(--bg-surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .inversion-avatar {
+      font-size: 4rem;
+      display: inline-block;
+      transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      margin-bottom: 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .inversion-avatar.inverted {
+      transform: rotate(180deg) scale(1.1);
+    }
+
+    .btn-invert {
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.55rem 1.3rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-invert:hover {
+      background: var(--text-main);
+      color: #FFF;
+      border-color: var(--text-main);
+    }
+
+    /* ===================================================
+       7. 作品與活動展示 (Works & Activities)
+       =================================================== */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .work-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .work-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
+    }
+
+    .work-thumb {
+      height: 190px;
+      background: var(--bg-surface-soft);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      overflow: hidden;
+    }
+
+    .work-thumb-pattern-1 {
+      background: linear-gradient(135deg, #F8EFE4 0%, #EADDCF 100%);
+    }
+
+    .work-thumb-pattern-2 {
+      background: linear-gradient(135deg, #F2ECE5 0%, #DFD5CB 100%);
+    }
+
+    .work-thumb-pattern-3 {
+      background: linear-gradient(135deg, #EFECE6 0%, #D8D2C6 100%);
+    }
+
+    .work-body {
+      padding: 1.6rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .work-category {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .work-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+
+    .work-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    .work-tags {
+      margin-top: auto;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag-badge {
+      font-size: 0.72rem;
+      background: var(--bg-cream);
+      border: 1px solid var(--border-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+    }
+
+    /* ===================================================
+       8. 簡約名言 / 俏皮生活哲理
+       =================================================== */
+    .quote-section {
+      padding: 3rem 0 5rem;
+    }
+
+    .quote-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quote-symbol {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .quote-text {
+      font-family: 'Playfair Display', 'Noto Sans TC', serif;
+      font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+      font-weight: 500;
+      color: var(--text-main);
+      max-width: 680px;
+      margin: 0 auto 1.2rem;
+      line-height: 1.6;
+    }
+
+    .quote-author {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===================================================
+       9. 聯絡方式與頁尾 (Contact & Footer)
+       =================================================== */
+    .footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-surface);
+      padding: 4rem 0 2.5rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.8rem;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-cream);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+    }
+
+    .social-btn:hover {
+      background: var(--text-main);
+      color: #FFF;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-top: 1.5rem;
+    }
+
+    /* ===================================================
+       10. 捲動淡入動畫 (Scroll Fade-In Reveal)
+       =================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 延遲階梯效果 */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* ===================================================
+       11. 複製 Email 提示視窗 (Toast)
+       =================================================== */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--text-main);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ===================================================
+       12. 響應式微調 (Responsive RWD)
+       =================================================== */
+    @media (max-width: 900px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-quote {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-visual {
+        order: -1;
+      }
+      .avatar-card {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+      .hobbies-grid,
+      .works-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      .skill-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .skill-stats {
+        justify-content: center;
+      }
+      .inversion-box {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 0.9rem 1.2rem;
+      }
+      .nav-links {
+        display: none; /* 手機端精簡版面 */
+      }
+      section {
+        padding: 4rem 0;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .skill-card {
+        padding: 2.2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 導覽列 -->
+  <div class="nav-container">
+    <nav class="navbar">
+      <a href="#" class="brand">
+        CELINE<span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#hobbies">三大日常</a></li>
+        <li><a href="#skills">特長：倒立</a></li>
+        <li><a href="#works">作品與活動</a></li>
+        <li><a href="#contact" class="nav-btn">Say Hi</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <!-- 2. Hero 區塊 -->
+    <section class="hero" id="about">
+      <div class="container">
+        <div class="hero-wrapper">
+          
+          <div class="hero-text reveal">
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              <span>Minimalist & Quirky Life</span>
+            </div>
+            <h1 class="hero-title">
+              Hi, 我是 <span class="serif-highlight">Celine.</span>
+            </h1>
+            <p class="hero-quote">
+              一句話介紹自己：<span class="quote-accent">87</span> ✦<br>
+              保持 87% 的幽默率真與生活熱情，剩下的留給畫筆、烤箱與顛倒世界的平衡感。
+            </p>
+            <div class="hero-actions">
+              <a href="#hobbies" class="btn-primary">
+                探索我的日常
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <button class="btn-secondary" onclick="copyContact()">
+                複製 Email
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal delay-1">
+            <div class="avatar-card">
+              <div class="avatar-illustration">
+                <div class="avatar-graphic">🎨</div>
+              </div>
+              <div class="avatar-meta">
+                <div>
+                  <h3>Celine</h3>
+                  <p>Baking · Drawing · Handstand</p>
+                </div>
+                <span style="font-size: 1.3rem;">🥐</span>
+              </div>
+              <div class="floating-pill">
+                <span>✦</span>
+                <span>Draw · Bake · Eat</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 興趣區塊 (Hobbies: Draw, Bake, Eat) -->
+    <section id="hobbies">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Passions</span>
+          <h2 class="section-title">生活的三大快樂來源</h2>
+          <p class="section-desc">簡單的生活節奏，由調色盤、剛出爐的香氣以及美味的味蕾記憶組合而成。</p>
+        </div>
+
+        <div class="hobbies-grid">
+          <!-- 興趣 1: Draw -->
+          <div class="hobby-card reveal delay-1">
+            <div class="hobby-icon-wrap">✏️</div>
+            <span class="hobby-tag">Hobby 01</span>
+            <h3 class="hobby-name">Draw 畫畫</h3>
+            <p class="hobby-desc">
+              用線條捕捉腦袋裡的靈感碎片。喜歡隨筆塗鴉、簡約插畫，用自己喜歡的溫柔色調記錄生活裡的可愛瞬間。
+            </p>
+            <div class="hobby-footer">
+              <span>✦</span> 自由手繪 · 視覺紀錄
+            </div>
+          </div>
+
+          <!-- 興趣 2: Bake -->
+          <div class="hobby-card reveal delay-2">
+            <div class="hobby-icon-wrap">🥐</div>
+            <span class="hobby-tag">Hobby 02</span>
+            <h3 class="hobby-name">Bake 烘焙</h3>
+            <p class="hobby-desc">
+              麵粉、奶油與溫度的奇妙魔法。等待烤箱飄出香氣的過程是最沉靜的療癒時刻，親手做點心分享給身邊的人。
+            </p>
+            <div class="hobby-footer">
+              <span>✦</span> 手作甜點 · 烤箱魔法
+            </div>
+          </div>
+
+          <!-- 興趣 3: Eat -->
+          <div class="hobby-card reveal delay-3">
+            <div class="hobby-icon-wrap">🍜</div>
+            <span class="hobby-tag">Hobby 03</span>
+            <h3 class="hobby-name">Eat 吃貨日常</h3>
+            <p class="hobby-desc">
+              熱愛尋覓街角巷弄的隱藏美食與精緻甜點。認真吃飯是對每一天最好的尊重，也是尋找生活靈感的最佳補給！
+            </p>
+            <div class="hobby-footer">
+              <span>✦</span> 巷弄探店 · 美食鑑賞
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 擅長/想學的技能：倒立 -->
+    <section id="skills">
+      <div class="container">
+        <div class="skill-card reveal">
+          <div class="skill-content">
+            <div class="skill-info">
+              <span class="section-tag">Special Skill</span>
+              <h3>擅長 &amp; 想持續精進的技能：倒立</h3>
+              <p>
+                「換個角度，世界其實很有趣！」<br>
+                倒立不只是身體核心力量與平衡的練習，更是一種專注於當下的心態。從靠牆支撐到離牆平衡，每一次倒立都是對重心與極限的重新對話。
+              </p>
+              
+              <div class="skill-stats">
+                <div class="stat-item">
+                  <span class="stat-num">360°</span>
+                  <span class="stat-label">顛倒視角</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-num">100%</span>
+                  <span class="stat-label">專注核心</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-num">∞</span>
+                  <span class="stat-label">挑戰樂趣</span>
+                </div>
+              </div>
+
+              <button class="btn-invert" onclick="toggleInvert()">
+                <span>🔄</span>
+                <span id="invertText">點擊切換倒立視角</span>
+              </button>
+            </div>
+
+            <!-- 倒立體驗框 -->
+            <div class="inversion-box">
+              <div id="character" class="inversion-avatar" onclick="toggleInvert()" title="點我倒立！">
+                🤸‍♀️
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">
+                點擊小人或按鈕，換個視角看世界！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 做過的作品與參加活動 (Works & Activities) -->
+    <section id="works">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Portfolio</span>
+          <h2 class="section-title">作品與活動足跡</h2>
+          <p class="section-desc">結合生活愛好與實踐的點滴紀錄（內容皆可隨時自由替換為你的精彩照片與故事）。</p>
+        </div>
+
+        <div class="works-grid">
+          <!-- 作品 1 -->
+          <div class="work-card reveal delay-1">
+            <div class="work-thumb work-thumb-pattern-1">
+              🧁
+            </div>
+            <div class="work-body">
+              <span class="work-category">Baking Project</span>
+              <h3 class="work-title">週末甜點手作實驗</h3>
+              <p class="work-desc">
+                探索法式可麗露與手工戚風蛋糕的溫度掌控，從配方調配到擺盤包裝，完成了一系列溫暖的週末甜點創作。
+              </p>
+              <div class="work-tags">
+                <span class="tag-badge">烘焙創作</span>
+                <span class="tag-badge">手作食譜</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 作品 2 -->
+          <div class="work-card reveal delay-2">
+            <div class="work-thumb work-thumb-pattern-2">
+              🖼️
+            </div>
+            <div class="work-body">
+              <span class="work-category">Illustration</span>
+              <h3 class="work-title">日常隨筆速寫微展</h3>
+              <p class="work-desc">
+                用 iPad 與手繪本記錄生活中的瑣碎美好，包含咖啡廳觀察、街邊貓咪速寫以及富有個人風格的趣味插圖。
+              </p>
+              <div class="work-tags">
+                <span class="tag-badge">插畫</span>
+                <span class="tag-badge">生活速寫</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 作品 3 -->
+          <div class="work-card reveal delay-3">
+            <div class="work-thumb work-thumb-pattern-3">
+              🎪
+            </div>
+            <div class="work-body">
+              <span class="work-category">Challenge &amp; Activity</span>
+              <h3 class="work-title">倒立平衡 30 天日常挑戰</h3>
+              <p class="work-desc">
+                記錄從一開始的手腕支撐訓練到自主穩定倒立的完整蛻變歷程，培養穩定的肌耐力與專注抗壓的心智。
+              </p>
+              <div class="work-tags">
+                <span class="tag-badge">倒立訓練</span>
+                <span class="tag-badge">自我挑戰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 簡約名言區塊 -->
+    <section class="quote-section">
+      <div class="container">
+        <div class="quote-box reveal">
+          <div class="quote-symbol">“</div>
+          <p class="quote-text">
+            「生活不用太繁複，吃得飽、畫得出心中的想像，偶爾把自己倒過來看世界，就足夠精彩。」
+          </p>
+          <div class="quote-author">— Celine</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. 聯絡與頁尾 -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-content reveal">
+        <div class="footer-brand">CELINE.</div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 420px;">
+          保持簡單、善良與好奇心。歡迎透過信箱與我交流手作烘焙與生活日常！
+        </p>
+        
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Instagram" aria-label="Instagram">📷</a>
+          <a href="#" class="social-btn" title="Illustration" aria-label="Portfolio">🎨</a>
+          <button class="social-btn" onclick="copyContact()" title="Copy Email" aria-label="Copy Email" style="cursor: pointer;">✉️</button>
+        </div>
+
+        <div class="footer-copy">
+          &copy; <span id="year"></span> Celine. All rights reserved. Crafted with clean minimalism &amp; warm cream aesthetics.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 複製 Email 彈出提示 (Toast) -->
+  <div id="toast" class="toast">
+    已複製 Email：celine.contact@example.com ✦
+  </div>
+
+  <!-- JavaScript: 捲動淡入、互動倒立與複製功能 -->
+  <script>
+    // 1. 自動填入年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 2. 捲動淡入動畫 (Intersection Observer)
+    const revealElements = document.querySelectorAll('.reveal');
+    const observerOptions = {
+      root: null,
+      threshold: 0.15,
+      rootMargin: "0px 0px -40px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // 一旦觸發後即可取消觀察，確保平滑高效
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 3. 趣味倒立互動切換
+    let isInverted = false;
+    function toggleInvert() {
+      const char = document.getElementById('character');
+      const text = document.getElementById('invertText');
+      isInverted = !isInverted;
+      
+      if (isInverted) {
+        char.classList.add('inverted');
+        char.textContent = '🤸‍♀️';
+        text.textContent = '顛倒世界中！(點擊還原)';
+      } else {
+        char.classList.remove('inverted');
+        char.textContent = '🚶‍♀️';
+        text.textContent = '點擊切換倒立視角';
+      }
+    }
+
+    // 4. 複製聯絡方式與 Toast 通知
+    function copyContact() {
+      const email = 'celine.contact@example.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2600);
+      }).catch(err => {
+        alert('Celine 聯絡信箱：' + email);
+      });
+    }
+  </script>
+</body>
+</html>
